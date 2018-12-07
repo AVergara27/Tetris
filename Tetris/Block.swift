@@ -44,4 +44,5 @@ enum BlockColor: Int, CustomStringConvertible {
     static func random() -> BlockColor {
         return BlockColor(rawValue:Int(arc4random_uniform(NumberOfColors)))!
     }
+    
 }
