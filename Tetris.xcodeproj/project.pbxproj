@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EF375A9F21BAB6FE00C42032 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF375A9E21BAB6FD00C42032 /* Array2D.swift */; };
+		EF375AA121BAB9C700C42032 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF375AA021BAB9C700C42032 /* Block.swift */; };
 		EF7F30F521B96D0D00247E6D /* drop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF7F30F021B96D0D00247E6D /* drop.mp3 */; };
 		EF7F30F621B96D0D00247E6D /* levelup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF7F30F121B96D0D00247E6D /* levelup.mp3 */; };
 		EF7F30F721B96D0D00247E6D /* gameover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF7F30F221B96D0D00247E6D /* gameover.mp3 */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		EF375A9E21BAB6FD00C42032 /* Array2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		EF375AA021BAB9C700C42032 /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		EF7F30F021B96D0D00247E6D /* drop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drop.mp3; sourceTree = "<group>"; };
 		EF7F30F121B96D0D00247E6D /* levelup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = levelup.mp3; sourceTree = "<group>"; };
 		EF7F30F221B96D0D00247E6D /* gameover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameover.mp3; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				EFB465A721B96B8100094F5F /* GameScene.swift */,
 				EFB465A921B96B8100094F5F /* GameViewController.swift */,
 				EF375A9E21BAB6FD00C42032 /* Array2D.swift */,
+				EF375AA021BAB9C700C42032 /* Block.swift */,
 				EFB465AB21B96B8100094F5F /* Main.storyboard */,
 				EF7F30FA21B96D2500247E6D /* Sprites.atlas */,
 				EF7F30EF21B96D0D00247E6D /* Sounds */,
@@ -180,6 +183,7 @@
 			files = (
 				EFB465A821B96B8100094F5F /* GameScene.swift in Sources */,
 				EF375A9F21BAB6FE00C42032 /* Array2D.swift in Sources */,
+				EF375AA121BAB9C700C42032 /* Block.swift in Sources */,
 				EFB465AA21B96B8100094F5F /* GameViewController.swift in Sources */,
 				EFB465A221B96B8100094F5F /* AppDelegate.swift in Sources */,
 			);
