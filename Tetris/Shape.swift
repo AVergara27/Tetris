@@ -23,6 +23,7 @@ enum Orientation: Int, CustomStringConvertible {
             return "180"
         case .TwoSeventy:
             return "270"
+            
         }
     }
     
@@ -40,4 +41,6 @@ enum Orientation: Int, CustomStringConvertible {
         }
         return Orientation(rawValue:rotated)!
     }
+    
 }
+
