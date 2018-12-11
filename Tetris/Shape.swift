@@ -2,6 +2,7 @@
 //  Shape.swift
 //  Tetris
 //
+<<<<<<< Updated upstream
 //  Created by Period 1 on 12/7/18.
 //  Copyright © 2018 DGS. All rights reserved.
 //
@@ -41,3 +42,10 @@ enum Orientation: Int, CustomStringConvertible {
         return Orientation(rawValue:rotated)!
     }
 }
+=======
+//  Created by Period 1 on 12/10/18.
+//  Copyright © 2018 DGS. All rights reserved.
+//
+
+import Foundation
+>>>>>>> Stashed changes
