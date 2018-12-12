@@ -397,14 +397,14 @@ class Shape: Equatable {
             return
         }
         // #1
-        for (idx, diff) in blockRowColumnTranslation.enumerate() {
+        for (idx, diff) in blockRowColumnTranslation.enumerated() {
             blocks[idx].column = column + diff.columnDiff
             blocks[idx].row = row + diff.rowDiff
         }
     }
     
     final func lowerShapeByOneRow() {
-        shiftBy(0, rows:1)
+        shiftBy(columns:0, rows:1)
     }
     
     // #2
@@ -421,7 +421,7 @@ class Shape: Equatable {
     final func moveTo(column: Int, row:Int) {
         self.column = column
         self.row = row
-        rotateBlocks(orientation)
+        rotateBlocks(orientation:orientation)
     }
     
     final class func random(startingColumn:Int, startingRow:Int) -> Shape {
@@ -444,7 +444,7 @@ class Shape: Equatable {
         }
     }
     
-    func ==(lhs: Shape, rhs: Shape) -> Bool {
+    static func ==(lhs: Shape, rhs: Shape) -> Bool {
         return lhs.row == rhs.row && lhs.column == rhs.column
     }
 }
