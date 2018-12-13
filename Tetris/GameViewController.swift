@@ -4,7 +4,6 @@
 //
 //  Created by Period 1 on 12/6/18.
 //  Copyright © 2018 DGS. All rights reserved.
-//
 
 import UIKit
 import SpriteKit
@@ -17,9 +16,6 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        func viewDidLoad() {
-            super.viewDidLoad()
             
             // Configure the view.
             let skView = view as! SKView
@@ -46,8 +42,6 @@ class GameViewController: UIViewController {
                 }
             }
         }
-        
-    }
 
 
     override var prefersStatusBarHidden: Bool {
@@ -58,4 +52,5 @@ class GameViewController: UIViewController {
         swiftris.fallingShape?.lowerShapeByOneRow()
         scene.redrawShape(shape: swiftris.fallingShape!, completion: {})
     }
+
 }
