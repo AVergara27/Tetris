@@ -71,12 +71,12 @@ import GameplayKit
     @IBAction func didPan(_ sender: UIPanGestureRecognizer) {
     
         // #2
-        let currentPoint = sender.translationInView(self.view)
+        let currentPoint = sender.translation(in: self.view)
         if let originalPoint = panPointReference {
             // #3
             if abs(currentPoint.x - originalPoint.x) > (BlockSize * 0.9) {
                 // #4
-                if sender.velocityInView(self.view).x > CGFloat(0) {
+                if sender.velocity(in: self.view).x > CGFloat(0) {
                     swiftris.moveShapeRight()
                     panPointReference = currentPoint
                 } else {
@@ -84,7 +84,7 @@ import GameplayKit
                     panPointReference = currentPoint
                 }
             }
-        } else if sender.state == .Began {
+        } else if sender.state == .began {
             panPointReference = currentPoint
         }
     
@@ -92,14 +92,6 @@ import GameplayKit
     
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
         swiftris.rotateShape()
-    }
-    
-    func gameShapeDidDrop(swiftris: Swiftris) {
-        // #7
-        scene.stopTicking()
-        scene.redrawShape(swiftris.fallingShape!) {
-            swiftris.letShapeFall()
-        }
     }
     
     func didTick() {
@@ -140,7 +132,11 @@ import GameplayKit
     }
     
     func gameShapeDidDrop(swiftris: Swiftris) {
-        
+        // #7
+        scene.stopTicking()
+        scene.redrawShape(shape: swiftris.fallingShape!) {
+            swiftris.letShapeFall()
+        }
     }
     
     func gameShapeDidLand(swiftris: Swiftris) {
