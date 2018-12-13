@@ -9,10 +9,13 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
+ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognizerDelegate {
     
     var scene: GameScene!
     var swiftris:Swiftris!
+    
+    // #1
+    var panPointReference:CGPoint?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +49,33 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    
+    @IBAction func didPan(_ sender: UIPanGestureRecognizer) {
+    
+        // #2
+        let currentPoint = sender.translationInView(self.view)
+        if let originalPoint = panPointReference {
+            // #3
+            if abs(currentPoint.x - originalPoint.x) > (BlockSize * 0.9) {
+                // #4
+                if sender.velocityInView(self.view).x > CGFloat(0) {
+                    swiftris.moveShapeRight()
+                    panPointReference = currentPoint
+                } else {
+                    swiftris.moveShapeLeft()
+                    panPointReference = currentPoint
+                }
+            }
+        } else if sender.state == .Began {
+            panPointReference = currentPoint
+        }
+    
+    }
+    
+    @IBAction func didTap(_ sender: UITapGestureRecognizer) {
+        swiftris.rotateShape()
     }
     
     func didTick() {
