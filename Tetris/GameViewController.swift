@@ -51,6 +51,30 @@ import GameplayKit
         return true
     }
     
+    @IBAction func didSwipe(_ sender: UISwipeGestureRecognizer) {
+    
+         swiftris.dropShape()
+    
+    }
+    
+    // #5
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    // #6
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer is UISwipeGestureRecognizer {
+            if otherGestureRecognizer is UIPanGestureRecognizer {
+                return true
+            }
+        } else if gestureRecognizer is UIPanGestureRecognizer {
+            if otherGestureRecognizer is UITapGestureRecognizer {
+                return true
+            }
+        }
+        return false
+    }
     
     @IBAction func didPan(_ sender: UIPanGestureRecognizer) {
     
@@ -76,6 +100,14 @@ import GameplayKit
     
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
         swiftris.rotateShape()
+    }
+    
+    func gameShapeDidDrop(swiftris: Swiftris) {
+        // #7
+        scene.stopTicking()
+        scene.redrawShape(swiftris.fallingShape!) {
+            swiftris.letShapeFall()
+        }
     }
     
     func didTick() {
