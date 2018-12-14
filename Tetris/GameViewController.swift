@@ -11,6 +11,9 @@ import GameplayKit
 
  class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognizerDelegate {
     
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+    
     var scene: GameScene!
     var swiftris:Swiftris!
     
@@ -112,6 +115,11 @@ import GameplayKit
     }
     
     func gameDidBegin(swiftris: Swiftris) {
+        // Reset Score
+        levelLabel.text = "\(swiftris.level)"
+        scoreLabel.text = "\(swiftris.score)"
+        scene.tickLengthMillis = TickLengthLevelOne
+        
         // The following is false when restarting a new game
         if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {
             scene.addPreviewShapeToScene(shape: swiftris.nextShape!) {
@@ -125,10 +133,21 @@ import GameplayKit
     func gameDidEnd(swiftris: Swiftris) {
         view.isUserInteractionEnabled = false
         scene.stopTicking()
+        scene.playSound(sound: "Sounds/gameover.mp3")
+        scene.animateCollapsingLines(linesToRemove: swiftris.removeAllBlocks(), fallenBlocks: swiftris.removeAllBlocks()) {
+            swiftris.beginGame()
+        }
     }
     
     func gameDidLevelUp(swiftris: Swiftris) {
+        levelLabel.text = "\(swiftris.level)"
+        if scene.tickLengthMillis >= 100 {
+            scene.tickLengthMillis -= 100
+        } else if scene.tickLengthMillis > 50 {
+            scene.tickLengthMillis -= 50
+        }
         
+        scene.playSound(sound: "Sounds/levelup.mp3")
     }
     
     func gameShapeDidDrop(swiftris: Swiftris) {
@@ -137,11 +156,25 @@ import GameplayKit
         scene.redrawShape(shape: swiftris.fallingShape!) {
             swiftris.letShapeFall()
         }
+        
+        scene.playSound(sound: "Sounds/drop.mp3")
     }
     
     func gameShapeDidLand(swiftris: Swiftris) {
         scene.stopTicking()
-        nextShape()
+        self.view.isUserInteractionEnabled = false
+        
+        let removedLines = swiftris.removeCompletedLines()
+        if removedLines.linesRemoved.count > 0 {
+            self.scoreLabel.text = "\(swiftris.score)"
+            scene.animateCollapsingLines(linesToRemove: removedLines.linesRemoved, fallenBlocks:removedLines.fallenBlocks) {
+                // #11
+                self.gameShapeDidLand(swiftris: swiftris)
+            }
+            scene.playSound(sound: "Sounds/bomb.mp3")
+        } else {
+            nextShape()
+        }
     }
     
     // #17
