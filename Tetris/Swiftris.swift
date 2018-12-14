@@ -115,12 +115,12 @@ class Swiftris {
             if detectIllegalPlacement() {
                 endGame()
             } else {
-                rotateShape()
+                settleShape()
             }
         } else {
             delegate?.gameShapeDidMove(swiftris: self)
             if detectTouch() {
-                rotateShape()
+                settleShape()
             }
         }
     }
