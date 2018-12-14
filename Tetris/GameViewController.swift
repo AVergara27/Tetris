@@ -17,6 +17,8 @@ import GameplayKit
     // #1
     var panPointReference:CGPoint?
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
             
