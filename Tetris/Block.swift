@@ -49,11 +49,12 @@ enum BlockColor: String
     case Teal = "teal"
     case Yellow = "yellow"
     case White = "white"
+    case Pewds = "pewds"
     //More colors
     
     static func random() -> BlockColor
     {
-        let all: [BlockColor] = [.Blue, .Orange, .Purple, .Red, .Teal, .Yellow, .White]
+        let all: [BlockColor] = [.Blue, .Orange, .Purple, .Red, .Teal, .Yellow, .White, .Pewds]
         return all[Int(arc4random()) % all.count]
     }
 }
