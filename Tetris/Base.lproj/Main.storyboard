@@ -83,9 +83,9 @@
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="x9y-3d-Ubs" appends="YES" id="vQq-c6-nhE"/>
                             <outletCollection property="gestureRecognizers" destination="srQ-dT-SAQ" appends="YES" id="H5S-TA-wkH"/>
                             <outletCollection property="gestureRecognizers" destination="HTc-vj-nTL" appends="YES" id="A2w-z8-pWn"/>
+                            <outletCollection property="gestureRecognizers" destination="XIG-Rn-wWg" appends="YES" id="EA9-1q-T0i"/>
                         </connections>
                     </view>
                     <connections>
@@ -94,11 +94,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="x9y-3d-Ubs">
-                    <connections>
-                        <action selector="didTap:" destination="BV1-FR-VrT" id="CTV-rB-ZRj"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="srQ-dT-SAQ">
                     <connections>
                         <action selector="didPan:" destination="BV1-FR-VrT" id="WpQ-64-q30"/>
@@ -109,6 +104,11 @@
                         <action selector="didSwipe:" destination="BV1-FR-VrT" id="GGM-JF-1WQ"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <tapGestureRecognizer id="XIG-Rn-wWg">
+                    <connections>
+                        <action selector="didTap:" destination="BV1-FR-VrT" id="Y5H-QN-gIw"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
