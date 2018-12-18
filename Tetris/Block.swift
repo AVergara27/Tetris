@@ -49,6 +49,7 @@ enum BlockColor: String
     case Teal = "teal"
     case Yellow = "yellow"
     case White = "white"
+    //More colors
     
     static func random() -> BlockColor
     {
