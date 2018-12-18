@@ -249,6 +249,7 @@ class Swiftris {
         return (removedLines, fallenBlocks)
     }
     
+    
     func removeAllBlocks() -> Array<Array<Block>> {
         var allBlocks = Array<Array<Block>>()
         for row in 0..<NumRows {
